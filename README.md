@@ -1,17 +1,18 @@
 ## Oiii eu sou o Ricardo Henrique, desenvolvedor e apaixonado por aprender!
-<link href="styles.css" rel="stylesheet"></link>
-
-<main class="container">
-  <button class="pikachu">
-    <div class="left-eyes"></div>
-    <div class="right-eyes"></div>
-    <div class="nose"></div>
-    <div class="right-mouth"></div>
-    <div class="left-mouth"></div>
-    <div class="left-cheek"></div>
-    <div class="right-cheek"></div>
+<section>
+<link href="./styles.css" rel="stylesheet"></link>
+<main id="container">
+  <button id="pikachu">
+    <div id="left-eyes"></div>
+    <div id="right-eyes"></div>
+    <div id="nose"></div>
+    <div id="right-mouth"></div>
+    <div id="left-mouth"></div>
+    <div id="left-cheek"></div>
+    <div id="right-cheek"></div>
   </button>
 </main>
+</section>
 
 ##
 
