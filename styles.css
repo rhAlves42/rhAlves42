@@ -1,0 +1,156 @@
+body {
+  background: #f9f9f7;
+}
+.container {
+  background: #f9f9f7;
+  width: 100%;
+  height: calc(100vh - 65px);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex: 1;
+}
+.pallete {
+  display: flex;
+  margin: 15px 0;
+}
+
+.pikachu {
+  position: relative;
+  background: #fbecb3;
+  width: 200px;
+  height: 200px;
+  border-radius: 16px;
+  outline: none;
+  border: none;
+  box-shadow: 0px 10px 0px 0px #fcc199;
+  transition: all 0.5s;
+}
+
+.pikachu:hover {
+  box-shadow: none;
+}
+
+.pikachu::after,
+.pikachu::before {
+  content: "";
+  position: absolute;
+  background: #f9f9f7;
+  width: 80px;
+  height: 80px;
+}
+.pikachu::after {
+  left: -80px;
+}
+.pikachu::before {
+  right: -80px;
+  background: #f9f9f7;
+  z-index: 1;
+}
+
+.pikachu:active > .left-eyes::after,
+.pikachu:active > .right-eyes::after {
+  background: #fbecb3;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  content: "";
+  left: 0px;
+  bottom: -6px;
+  border-radius: 50%;
+}
+.pikachu:active > .left-eyes::before,
+.pikachu:active > .right-eyes::before {
+  background: #494738;
+}
+
+.left-eyes,
+.right-eyes {
+  transition: all 0.5s;
+  position: absolute;
+  top: 50px;
+  width: 40px;
+  height: 40px;
+  background: #494738;
+  border-radius: 50%;
+}
+
+.left-eyes {
+  left: 30px;
+}
+
+.right-eyes {
+  right: 30px;
+}
+
+.left-eyes:before,
+.right-eyes:before {
+  content: "";
+  position: absolute;
+  background: #f9f9f7;
+  width: 12px;
+  height: 12px;
+  top: 5px;
+  border-radius: 50%;
+}
+
+.left-eyes:before {
+  right: 5px;
+}
+.right-eyes:before {
+  left: 5px;
+}
+
+.nose {
+  position: absolute;
+  left: 46%;
+  margin-top: -20px;
+  transform: rotate(135deg);
+  width: 18px;
+  height: 18px;
+  background: #494738;
+}
+
+.nose::before {
+  position: absolute;
+  content: "";
+  transform: rotate(-135deg);
+  background: #fbecb3;
+  width: 26px;
+  height: 26px;
+  left: -8px;
+}
+
+.left-mouth,
+.right-mouth {
+  width: 35px;
+  height: 30px;
+  position: absolute;
+  background: #fbecb3;
+  border-radius: 60%;
+  box-shadow: 0px 3px 0px 0px #494738;
+}
+
+.left-mouth {
+  left: 32.5%;
+}
+.right-mouth {
+  right: 32.5%;
+}
+
+.left-cheek,
+.right-cheek {
+  position: absolute;
+  background: #be1d14;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.left-cheek {
+  left: -35px;
+}
+
+.right-cheek {
+  right: -35px;
+}
