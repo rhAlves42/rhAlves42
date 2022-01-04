@@ -1,4 +1,20 @@
 ## Oiii eu sou o Ricardo Henrique, desenvolvedor e apaixonado por aprender!
+<link href="./styles.css" rel="stylesheet"></link>
+
+<main class="container">
+  <button class="pikachu">
+    <div class="left-eyes"></div>
+    <div class="right-eyes"></div>
+    <div class="nose"></div>
+    <div class="right-mouth"></div>
+    <div class="left-mouth"></div>
+    <div class="left-cheek"></div>
+    <div class="right-cheek"></div>
+  </button>
+</main>
+
+##
+
 <div align="center">
   <a href="https://github.com/rhAlves42">
   <img height="180em" src="https://github-readme-stats.vercel.app/api?username=rhAlves42&show_icons=true&theme=dracula&include_all_commits=true&count_private=true"/>
