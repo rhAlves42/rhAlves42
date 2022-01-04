@@ -1,5 +1,5 @@
 ## Oiii eu sou o Ricardo Henrique, desenvolvedor e apaixonado por aprender!
-<link href="./styles.css" rel="stylesheet"></link>
+<link href="styles.css" rel="stylesheet"></link>
 
 <main class="container">
   <button class="pikachu">
