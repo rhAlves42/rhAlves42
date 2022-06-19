@@ -1,5 +1,5 @@
-<img src="./1080x520.png"/>
- <hr></hr>
+<!-----<img src="./1080x520.png"/>
+ <hr></hr> -->
 <p align="center">
   <samp>
     Hi, I'm Ricardo! 👋 <br>
