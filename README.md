@@ -1,4 +1,4 @@
-<img src="https://via.placeholder.com/1080x520"/>
+<img src="./1080x520.png"/>
  <hr></hr>
 <p align="center">
   <samp>
