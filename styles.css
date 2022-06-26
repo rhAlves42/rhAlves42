@@ -28,6 +28,9 @@ body {
   font-weight: 700;
 }
 
+.mb16 {
+  margin-bottom: 1rem;
+}
 
 .avatar {
   width: 200px;
@@ -81,24 +84,23 @@ body {
 }
 
 .about-me,
-.jobs {
+.jobs,
+.tech-competences {
   display: flex;
   flex-direction: column;
   margin-top: 1.5rem;
 }
 
-.jobs {
-  padding: 1.5rem 0;
-  border-bottom: 1px dashed #333333;
-}
-
 .about-me header,
-.jobs header {
-  margin-bottom: 1rem;
+.jobs header,
+.tech-competences header {
+  margin-bottom: 1.5rem;
 }
 
 .about-me p,
-.jobs p {
+.jobs p,
+.tech-competences p,
+.tech-competences ul li {
   letter-spacing: -0.003em;
   font-size: 20px;
   line-height: 32px;
@@ -106,9 +108,29 @@ body {
   text-align: justify;
 }
 
-.work-company {
+.tech-competences {
+  justify-content: start;
+}
+
+.work-company,
+.tech-item {
   text-align: left;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px dashed #333333;
+}
+
+.work-company h3 {
+  padding-bottom: .5rem;
+}
+
+.tech-list {
+  display: flex;
+}
+
+.tech-list li {
+  list-style: none;
 }
