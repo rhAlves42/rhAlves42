@@ -1,0 +1,87 @@
+@import "./font.css";
+
+html {
+  min-height: 100%;
+}
+
+body,
+#__next {
+  height: 100vh;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+ol,
+ul,
+mark,
+span:not([data-text-fill]) {
+  font-family: "Satoshi", "Satoshi Placeholder", sans-serif;
+  font-style: normal;
+  font-weight: 100;
+  color: #b3c2cb;
+  letter-spacing: -0.5px;
+  text-transform: none;
+  text-decoration-line: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.noise {
+  background-image: url("/assets/noise.png");
+}
+
+.gradient-text {
+  display: inline-block;
+  background-clip: text;
+  padding: 1.9px;
+  margin: -1.9px;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-image: radial-gradient(
+    61% 200% at 39.7% 21.9%,
+    rgb(255, 255, 255) 30%,
+    rgba(0, 0, 0, 0.75) 120%
+  );
+}
+
+.neon {
+  position: absolute;
+  width: calc(100% + 5px);
+  height: calc(100% - 26px);
+  border-radius: calc(infinity * 1px);
+  cursor: pointer;
+  overflow: visible;
+  transition: all 3s;
+  transition: background-image 1s ease-in-out; /* Adjust duration and timing function */
+}
+.perspective {
+  will-change: transform;
+  opacity: 1;
+  transform: perspective(1200px);
+}
+
+@keyframes shine {
+  0% {
+    -webkit-mask-position: 200%;
+  }
+  100% {
+    -webkit-mask-position: -100%;
+  }
+}
+.shine {
+  -webkit-mask-image: linear-gradient(to right, transparent 30%, #eee 50%, transparent 70%);
+  -webkit-mask-size: 150% auto;
+  animation: shine 5s ease-in-out infinite;
+}
+
+.octicon-mark-github {
+  width: 42px;
+  height: 42px;
+  color: #b3c2cb;
+}

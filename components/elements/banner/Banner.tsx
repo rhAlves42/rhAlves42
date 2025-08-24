@@ -1,0 +1,38 @@
+import NeonButton from "@components/ui/neon-button/NeonButton";
+import profileImg from "@public/assets/profile.jpg";
+
+const Banner = () => {
+  return (
+    <div className="flex w-full flex-col gap-10 rounded-lg p-4 text-center shadow-sm sm:p-8">
+      <div className="flex flex-col items-center">
+        <img
+          className="mb-3 h-24 w-24 rounded-full object-cover shadow-lg"
+          src={profileImg.src}
+          alt="Bonnie image"
+        />
+        <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">Ricardo Alves</h5>
+        <span className="text-sm text-gray-500 dark:text-gray-400">Software Developer</span>
+      </div>
+      <div
+        className="relative m-auto flex h-auto w-full max-w-[500px] min-w-[300px] flex-none shrink-0 transform-[perspective(1200px)] flex-col justify-start whitespace-pre-wrap opacity-100 will-change-transform"
+        data-framer-component-type="RichTextContainer"
+      >
+        <h1 className="framer-text framer-styles-preset-bccllm text-[32px]">
+          <span data-text-fill="true" className="gradient-text font-normal text-[#d1dae0]">
+            Transforming Ideas into <br /> High-Performance Applications
+          </span>
+        </h1>
+      </div>
+
+      <div className="items-center justify-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4 rtl:space-x-reverse">
+        <NeonButton>
+          <p className="z-2 inline-flex rounded-lg text-lg !font-semibold text-white focus:ring-4 focus:ring-blue-300 focus:outline-none">
+            Know more
+          </p>
+        </NeonButton>
+      </div>
+    </div>
+  );
+};
+
+export default Banner;
