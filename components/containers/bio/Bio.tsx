@@ -3,11 +3,11 @@ import ShineHighlight from "@components/elements/shine-highlight/ShineHighlight"
 
 const Bio = () => {
   return (
-    <section className="relative z-1 m-auto flex w-full max-w-[1248px] flex-col flex-nowrap items-center justify-center gap-10 overflow-hidden px-6 py-10">
+    <section className="relative z-1 m-auto flex w-full max-w-[1248px] flex-col flex-nowrap items-center justify-center gap-10 overflow-hidden py-10">
       <div className="relative flex h-min w-full max-w-[640px] flex-row flex-wrap content-center items-center justify-center gap-2 overflow-visible p-0 2xl:max-w-[920px]">
         <Paragraph>I'm a Software Engenieer and expert in</Paragraph>
         <ShineHighlight>Web & Mobile</ShineHighlight>
-        <Paragraph className="w-full md:w-auto">with over</Paragraph>{" "}
+        <Paragraph className="w-full md:w-auto">with over</Paragraph>
         <ShineHighlight>7 years</ShineHighlight>
         <Paragraph>of industry exeperience.</Paragraph>
         <Paragraph>Expertise extends to</Paragraph>

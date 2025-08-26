@@ -19,7 +19,7 @@ const LinksContainer = ({ children }: PropsWithChildren) => (
 
 const Footer = () => {
   return (
-    <footer className="relative flex h-min w-full flex-row flex-nowrap items-center justify-between self-end-safe overflow-visible px-8 pt-10 pb-10 opacity-100">
+    <footer className="relative flex h-min w-full flex-row flex-nowrap items-center justify-between self-end-safe overflow-visible pt-10 pb-10 opacity-100">
       <div className="relative flex h-auto w-auto shrink-0 flex-col justify-start whitespace-pre opacity-100 outline-none">
         <CustomParagraph>
           <a

@@ -12,9 +12,9 @@ const companyTestimony = [
 ];
 const CompanyTestimonies = () => {
   return (
-    <section className="relative flex h-min flex-col flex-nowrap items-center justify-center gap-[40px] overflow-visible px-6 py-20">
+    <section className="relative flex h-min flex-col flex-nowrap items-center justify-center overflow-visible py-20">
       <Circles />
-      <div className="flex flex-col gap-2 md:flex-row">
+      <div className="flex flex-col gap-[100px] md:flex-row md:gap-[32px]">
         {companyTestimony.map((testimony) => (
           <div
             key={testimony.logo}
