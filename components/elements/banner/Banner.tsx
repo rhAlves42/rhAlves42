@@ -1,10 +1,12 @@
 import NeonButton from "@components/ui/neon-button/NeonButton";
 import profileImg from "@public/assets/profile.jpg";
+import BubbleBackground from "../bubble-background/BubbleBackground";
 
 const Banner = () => {
   return (
-    <div className="flex w-full flex-col gap-10 rounded-lg p-4 text-center shadow-sm sm:p-8">
-      <div className="flex flex-col items-center">
+    <div className="flex w-full flex-col items-center gap-10 rounded-lg p-4 text-center shadow-sm sm:p-8">
+      <BubbleBackground />
+      <div className="relative z-1 flex flex-col items-center">
         <img
           className="mb-3 h-24 w-24 rounded-full object-cover shadow-lg"
           src={profileImg.src}
@@ -17,7 +19,7 @@ const Banner = () => {
         className="relative m-auto flex h-auto w-full max-w-[500px] min-w-[300px] flex-none shrink-0 transform-[perspective(1200px)] flex-col justify-start whitespace-pre-wrap opacity-100 will-change-transform"
         data-framer-component-type="RichTextContainer"
       >
-        <h1 className="framer-text framer-styles-preset-bccllm text-[32px]">
+        <h1 className="framer-text framer-styles-preset-bccllm text-[46px]">
           <span data-text-fill="true" className="gradient-text font-normal text-[#d1dae0]">
             Transforming Ideas into <br /> High-Performance Applications
           </span>
