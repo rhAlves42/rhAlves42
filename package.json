@@ -15,10 +15,11 @@
     "lint": "next lint",
     "upgrade": "npx ncu -u && npm install",
     "type-check": "npx tsc --noEmit",
-    "dc:up": "docker-compose -f docker-compose.development.yml up",
-    "dc:down": "docker-compose -f docker-compose.development.yml down",
-    "dc:clear": "docker-compose -f docker-compose.development.yml down -v",
-    "dc:prod": "docker-compose -f docker-compose.production.yml up"
+    "dc:up": "docker-compose --env-file .env up --build",
+    "dc:down": "docker-compose --env-file .env down",
+    "dc:clear": "docker-compose --env-file .env down -v",
+    "dc:prod": "docker-compose -f docker-compose.prod.yml --env-file .env up --build -d",
+    "prepare": "husky"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.0",
@@ -39,8 +40,10 @@
     "@types/react-dom": "^19.0.4",
     "@types/tailwindcss": "^3.1.0",
     "autoprefixer": "^10.4.21",
-    "eslint": "^9.22.0",
+    "eslint": "^9.34.0",
     "eslint-config-next": "^15.2.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.5",
     "npm-check-updates": "^17.1.15",
     "postcss": "^8.5.3",
     "prettier": "^3.6.2",
@@ -48,5 +51,11 @@
     "rimraf": "^6.0.1",
     "tailwindcss": "^4.0.13",
     "typescript": "^5.8.2"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }
