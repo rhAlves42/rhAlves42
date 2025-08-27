@@ -1,5 +1,6 @@
 "use client";
 import Hamburger from "@components/ui/hamburger/Hamburger";
+import Link from "next/link";
 type NavbarProps = {
   logoSrc: string;
 };
@@ -8,10 +9,10 @@ const Navbar: React.FC<NavbarProps> = ({ logoSrc }) => {
   return (
     <nav className="border-gray-200 bg-black">
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
-        <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+        <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img src={logoSrc} className="h-12 w-12 rounded-full object-cover" alt="Bojack Logo" />
           <span className="sr-only">Ricardo Alves Portifolio</span>
-        </a>
+        </Link>
 
         <Hamburger />
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">

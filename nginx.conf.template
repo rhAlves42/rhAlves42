@@ -1,0 +1,15 @@
+upstream nextjs_upstream {
+    server nextjs-prod:${NEXTJS_INTERNAL_PORT};
+}
+
+server {
+    listen 80;
+
+    location / {
+        proxy_pass http://nextjs_upstream;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $host;
+    }
+}

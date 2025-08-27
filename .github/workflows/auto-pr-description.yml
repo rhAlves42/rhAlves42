@@ -18,13 +18,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: "npm"
+          cache: "yarn"
 
       - name: Install octokit
-        run: npm install @octokit/action
+        run: yarn add @octokit/action
 
       - name: Generate Changelog
-        run: node .github/actions/changelog.v3.js
+        run: node .github/scripts/changelog.v3.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PULL_REQUEST_NUMBER: ${{ github.event.pull_request.number }}
