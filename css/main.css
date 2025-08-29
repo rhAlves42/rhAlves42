@@ -23,8 +23,6 @@ mark,
 span:not([data-text-fill]) {
   font-family: "Satoshi", "Satoshi Placeholder", sans-serif;
   font-style: normal;
-  font-weight: 100;
-  color: #b3c2cb;
   letter-spacing: -0.5px;
   text-transform: none;
   text-decoration-line: none;

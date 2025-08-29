@@ -6,7 +6,7 @@ type ParagrapthProps = PropsWithChildren & {
 };
 
 const Paragraph = ({ children, className }: ParagrapthProps) => (
-  <p className={tailwindMerge("!text-center !text-[20px] !font-thin !text-[#FDFEFF]", className)}>
+  <p className={tailwindMerge("text-center text-[20px] font-thin text-[#FDFEFF]", className)}>
     {children}
   </p>
 );
