@@ -2,6 +2,7 @@ import getPageContent from "lib/get-page-content/getPageContent";
 import ArticleBody from "../components/article-body/ArticleBody";
 import ArticleHeader from "../components/article-header/ArticleHeader";
 import StackContainer from "../components/stack-container/StackContainer";
+import { Suspense } from "react";
 
 const article = {
   title: "Portfolio Website for Construction Company",
@@ -20,16 +21,17 @@ const stackItems = [
 ];
 
 type PageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
-const Page: React.FC<PageProps> = async ({ params: { slug } }) => {
+const Page = async ({ params }: PageProps) => {
+  const { slug } = await params;
   const { markdown, properties } = await getPageContent(slug);
 
   return (
-    <>
+    <Suspense fallback={<div>Loading...</div>}>
       <ArticleHeader
         description={properties.description}
         title={properties.title}
@@ -39,7 +41,7 @@ const Page: React.FC<PageProps> = async ({ params: { slug } }) => {
 
       <ArticleBody content={markdown} />
       <StackContainer items={stackItems} />
-    </>
+    </Suspense>
   );
 };
 export default Page;
