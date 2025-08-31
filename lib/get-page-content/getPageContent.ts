@@ -1,3 +1,4 @@
+import { logger } from "@sentry/nextjs";
 import { formatPageContent } from "lib/content-formatter/contentFormatter";
 import {
   getDatabaseIdOrError,
@@ -14,25 +15,32 @@ type PageProperties = {
 };
 
 const getPageContent = async (slug: string) => {
-  const databaseId = getDatabaseIdOrError();
-  const queryResponse = await queryDatabase(databaseId, {
-    filter: {
-      property: "slug",
-      rich_text: {
-        equals: slug
-      }
-    },
-    page_size: 1
-  });
-  const pageId = queryResponse[0]?.id;
+  try {
+    logger.trace("Getting page content", { slug });
 
-  if (!pageId) {
+    const databaseId = getDatabaseIdOrError();
+    const queryResponse = await queryDatabase(databaseId, {
+      filter: {
+        property: "slug",
+        rich_text: {
+          equals: slug
+        }
+      },
+      page_size: 1
+    });
+    const pageId = queryResponse[0]?.id;
+
+    if (!pageId) {
+      return notFound();
+    }
+    const pageContent = await notionGetPageContent({ pageId });
+    const formatted = formatPageContent<PageProperties>(pageContent);
+
+    return formatted;
+  } catch (error) {
+    logger.fatal("Error fetching page content", { slug, error });
     return notFound();
   }
-  const pageContent = await notionGetPageContent({ pageId });
-  const formatted = formatPageContent<PageProperties>(pageContent);
-
-  return formatted;
 };
 
 export default getPageContent;

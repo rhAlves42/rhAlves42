@@ -7,10 +7,12 @@ import {
 import { NotionToMarkdown } from "notion-to-md";
 import { MdBlock } from "notion-to-md/build/types";
 import { GetPageContentParams, GetPageContentResponse } from "./types";
+import { logger } from "@sentry/nextjs";
 
 export function getDatabaseIdOrError() {
   const NOTION_DATABASE_ID = process.env.NOTION_CASES_DATABASE_ID;
   if (!NOTION_DATABASE_ID) {
+    logger.fatal("Error fetching database", { error: "NOTION_DATABASE_ID is not defined" });
     throw new Error("NOTION_DATABASE_ID is not defined");
   }
   return NOTION_DATABASE_ID;
@@ -23,11 +25,12 @@ export function getDatabaseIdOrError() {
 export const getDatabase = async (): Promise<DatabaseObjectResponse> => {
   try {
     const databaseId = getDatabaseIdOrError();
+    logger.trace("Getting database", { databaseId });
     const notion = getConnection();
     const database = await notion.databases.retrieve({ database_id: databaseId });
     return database as DatabaseObjectResponse;
   } catch (error) {
-    console.error(`Error fetching database:`, error);
+    logger.fatal("Error fetching database", { error });
     throw error;
   }
 };
@@ -43,6 +46,7 @@ export const queryDatabase = async (
   queryOptions?: Partial<QueryDatabaseParameters>
 ): Promise<PageObjectResponse[]> => {
   try {
+    logger.trace("Starting database connection", { databaseId });
     const notion = getConnection();
     let allEntries: PageObjectResponse[] = [];
     let cursor: string | null = null;
@@ -62,7 +66,7 @@ export const queryDatabase = async (
 
     return allEntries;
   } catch (error) {
-    console.error(`Error querying database with ID ${databaseId}:`, error);
+    logger.fatal("Error querying database with ID", { databaseId, error });
     throw error;
   }
 };
@@ -77,6 +81,7 @@ export const getPageContent = async ({
   pageId
 }: GetPageContentParams): Promise<GetPageContentResponse> => {
   try {
+    logger.trace("Getting page content", { pageId });
     const notion = getConnection();
     const pageData = await notion.pages.retrieve({ page_id: pageId });
 
@@ -91,7 +96,7 @@ export const getPageContent = async ({
       properties: pageDataResponse.properties
     };
   } catch (error) {
-    console.error(`Error fetching content for page ID ${pageId}:`, error);
+    logger.fatal("Error fetching content for page ID", { pageId, error });
     throw error;
   }
 };
