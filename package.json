@@ -26,6 +26,7 @@
     "@mdx-js/react": "^3.1.0",
     "@next/mdx": "^15.2.2",
     "@notionhq/client": "^4.0.2",
+    "@sentry/nextjs": "^10",
     "@svgr/webpack": "^8.1.0",
     "@tailwindcss/postcss": "^4.0.13",
     "clsx": "^2.1.1",
