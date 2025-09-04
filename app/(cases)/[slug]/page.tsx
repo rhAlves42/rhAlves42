@@ -26,12 +26,12 @@ type PageProps = {
   }>;
 };
 
-const Page = async ({ params }: PageProps) => {
+const PageContent = async ({ params }: PageProps) => {
   const { slug } = await params;
-  const { markdown, properties } = await getPageContent(slug);
+  const { content, ...properties } = await getPageContent(slug);
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <>
       <ArticleHeader
         description={properties.description}
         title={properties.title}
@@ -39,9 +39,16 @@ const Page = async ({ params }: PageProps) => {
         imageAlt={article.imageAlt}
       />
 
-      <ArticleBody content={markdown} />
+      <ArticleBody content={content} />
       <StackContainer items={stackItems} />
-    </Suspense>
+    </>
   );
 };
-export default Page;
+
+export default function Page({ params }: PageProps) {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <PageContent params={params} />
+    </Suspense>
+  );
+}

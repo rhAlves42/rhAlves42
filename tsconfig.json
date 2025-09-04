@@ -23,27 +23,14 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@components/*": [
-        "./components/*"
-      ],
-      "@hooks/*": [
-        "./hooks/*"
-      ],
-      "@utils/*": [
-        "./utils/*"
-      ],
-      "@types/*": [
-        "./types/*"
-      ],
-      "@hoc/*": [
-        "./hoc/*"
-      ],
-      "@theme/*": [
-        "./theme/*"
-      ],
-      "@public/*": [
-        "./public/*"
-      ]
+      "@/*": ["./*"],
+      "@components/*": ["./components/*"],
+      "@hooks/*": ["./hooks/*"],
+      "@utils/*": ["./utils/*"],
+      "@types/*": ["./types/*"],
+      "@hoc/*": ["./hoc/*"],
+      "@theme/*": ["./theme/*"],
+      "@public/*": ["./public/*"]
     },
     "target": "ES2017"
   },

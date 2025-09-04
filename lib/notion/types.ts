@@ -8,3 +8,8 @@ export type GetPageContentResponse = {
   mdBlocks: MdBlock[];
   properties: PageObjectResponse["properties"];
 };
+
+export enum DATABASES {
+  CASES = "cases",
+  STACK = "stack"
+}

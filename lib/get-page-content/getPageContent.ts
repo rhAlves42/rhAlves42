@@ -1,42 +1,21 @@
 import { logger } from "@sentry/nextjs";
-import { formatPageContent } from "lib/content-formatter/contentFormatter";
-import {
-  getDatabaseIdOrError,
-  getPageContent as notionGetPageContent,
-  queryDatabase
-} from "lib/notion/get-pages";
 import { notFound } from "next/navigation";
-
-type PageProperties = {
-  title: string;
-  slug: string;
-  content: string;
-  description: string;
-};
+import nextApiRequest from "../next/nextApiRequest";
+import { Case } from "@/types/case";
+import NEXT_API_ENDPOINTS from "@/utils/nextApiEndpoints";
+import HTTP_METHODS from "@/utils/httpsMethods";
 
 const getPageContent = async (slug: string) => {
   try {
     logger.trace("Getting page content", { slug });
 
-    const databaseId = getDatabaseIdOrError();
-    const queryResponse = await queryDatabase(databaseId, {
-      filter: {
-        property: "slug",
-        rich_text: {
-          equals: slug
-        }
-      },
-      page_size: 1
+    const response = await nextApiRequest<Case>({
+      endPoint: NEXT_API_ENDPOINTS.GET_CASE_BY_SLUG(slug),
+      method: HTTP_METHODS.GET
     });
-    const pageId = queryResponse[0]?.id;
 
-    if (!pageId) {
-      return notFound();
-    }
-    const pageContent = await notionGetPageContent({ pageId });
-    const formatted = formatPageContent<PageProperties>(pageContent);
 
-    return formatted;
+    return response;
   } catch (error) {
     logger.fatal("Error fetching page content", { slug, error });
     return notFound();

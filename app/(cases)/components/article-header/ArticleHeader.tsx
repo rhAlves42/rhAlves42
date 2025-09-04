@@ -20,7 +20,7 @@ const ArticleHeader = ({ title, description, imageSrcSet, imageAlt }: ArticleHea
         srcSet={imageSrcSet}
         alt={imageAlt}
         sizes="calc(min(100vw - 80px, 1080px) - 80px)"
-        className="mt-10 object-cover md:max-w-[1080px] md:rounded-3xl"
+        className="mt-10 object-cover md:max-w-fit md:rounded-3xl lg:max-w-[1080px]"
       />
     </article>
   );
