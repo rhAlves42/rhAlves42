@@ -14,7 +14,6 @@ const getPageContent = async (slug: string) => {
       method: HTTP_METHODS.GET
     });
 
-    console.log("Response from getPageContent", response);
 
     return response;
   } catch (error) {

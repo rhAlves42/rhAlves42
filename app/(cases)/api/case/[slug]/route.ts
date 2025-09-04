@@ -6,6 +6,7 @@ import { formatPageContent } from "lib/content-formatter/contentFormatter";
 import { getPageContent as notionGetPageContent, queryDatabase } from "@/lib/notion/get-pages";
 import { DATABASES } from "@/lib/notion/types";
 import { HttpStatusCode } from "@/utils/httpStatus";
+import { logger } from "@sentry/nextjs";
 
 type PageProperties = {
   title: string;
@@ -43,13 +44,17 @@ export async function GET(_req: NextApiRequest, context: { params: { slug: strin
         title: properties.title,
         content: markdown,
         description: properties.description,
-        stack: []
+        stack: stacks
       },
       {
         status: HttpStatusCode.OK
       }
     );
-  } catch (error) {
+  } catch (error: any) {
+    // Log the error for debugging purposes
+
+    logger.error("Error in GET /api/case/[slug]:", error);
+
     return NextResponse.json({} as Case, { status: HttpStatusCode.InternalServerError });
   }
 }
