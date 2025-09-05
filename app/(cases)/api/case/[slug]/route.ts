@@ -1,10 +1,8 @@
-import { NextResponse } from "next/server";
-import type { NextApiRequest } from "next";
+import { type NextRequest, NextResponse } from "next/server";
 
 import { Case } from "@/types/case";
 import { formatPageContent } from "lib/content-formatter/contentFormatter";
-import { getPageContent as notionGetPageContent, queryDatabase } from "@/lib/notion/get-pages";
-import { DATABASES } from "@/lib/notion/types";
+import { getPageContent as notionGetPageContent, queryCasesBySlug } from "@/lib/notion/get-cases";
 import { HttpStatusCode } from "@/utils/httpStatus";
 import { logger } from "@sentry/nextjs";
 
@@ -15,18 +13,18 @@ type PageProperties = {
   description: string;
   stacks: string[];
 };
+type Context = {
+  params: Promise<{
+    slug: string;
+  }>;
+};
 
-export async function GET(_req: NextApiRequest, context: { params: { slug: string } }) {
+export async function GET(_req: NextRequest, context: Context) {
   try {
-    const { slug } = context.params;
-    const queryCasesResponse = await queryDatabase(DATABASES.CASES, {
-      filter: {
-        property: "slug",
-        rich_text: {
-          equals: slug ?? ""
-        }
-      },
-      page_size: 1
+    const { slug } = await context.params;
+    const queryCasesResponse = await queryCasesBySlug({
+      pageSize: 1,
+      slug
     });
     const pageId = queryCasesResponse[0]?.id;
 
