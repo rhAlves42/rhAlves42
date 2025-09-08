@@ -1,12 +1,6 @@
 import { logger } from "@sentry/nextjs";
 import getConnection, { queryDatabase } from "./connection";
-import {
-  DATABASES,
-  GetPageContentResponse,
-  GetStackContentParams,
-  GetStackContentResponse
-} from "./types";
-import { NotionToMarkdown } from "notion-to-md";
+import { DATABASES, GetStackContentParams, GetStackContentResponse } from "./types";
 import { PageObjectResponse } from "@notionhq/client";
 
 export const queryStackById = async ({ id, pageSize }: { id: string; pageSize: number }) => {
