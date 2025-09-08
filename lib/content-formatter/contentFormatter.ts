@@ -1,4 +1,3 @@
-import { TStackItem } from "@/app/(cases)/components/stack-container/types";
 import { Stack } from "@/types/stack";
 import { PageObjectResponse } from "@notionhq/client";
 import getConnection from "lib/notion/connection";
@@ -10,6 +9,7 @@ import {
 } from "lib/notion/types";
 import { NotionToMarkdown } from "notion-to-md";
 
+// @ts-ignore eslint-disable-next-line no-unused-vars
 enum PropertyKeys {
   number = "number",
   url = "url",
@@ -35,6 +35,7 @@ enum PropertyKeys {
   relation = "relation",
   rollup = "rollup"
 }
+/* eslint-enable no-unused-vars */
 
 const setupn2m = () => {
   const notion = getConnection();
@@ -54,7 +55,8 @@ export function formatBatchStacks(stacks: GetStackContentResponse[]): Stack[] {
 }
 
 function formatProperties<T>(properties: PageObjectResponse["properties"]): T {
-  const formatterByType: Record<string, (key: string, value: any) => void> = {
+  type FormattedByType = Record<string, (key: string, value: any) => void>;
+  const formatterByType: FormattedByType = {
     [PropertyKeys.unique_id]: (key: string, value: any) => {
       const { number } = (value as any)[value.type];
       return { [key]: number };

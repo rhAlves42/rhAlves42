@@ -8,13 +8,6 @@ import { HttpStatusCode } from "@/utils/httpStatus";
 import { logger } from "@sentry/nextjs";
 import { getStackBatchContent } from "@/lib/notion/get-stacks";
 
-type PageProperties = {
-  title: string;
-  slug: string;
-  content: string;
-  description: string;
-  stacks: string[];
-};
 type Context = {
   params: Promise<{
     slug: string;

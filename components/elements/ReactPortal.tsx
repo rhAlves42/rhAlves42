@@ -1,6 +1,6 @@
 import type { WithChildren } from "types";
 
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import ReactDOM from "react-dom";
 
 interface Props extends WithChildren {
