@@ -1,10 +1,12 @@
 import { type NextRequest, NextResponse } from "next/server";
 
 import { Case } from "@/types/case";
-import { formatPageContent } from "lib/content-formatter/contentFormatter";
+import { formatBatchStacks, formatPageContent } from "lib/content-formatter/contentFormatter";
 import { getPageContent as notionGetPageContent, queryCasesBySlug } from "@/lib/notion/get-cases";
+
 import { HttpStatusCode } from "@/utils/httpStatus";
 import { logger } from "@sentry/nextjs";
+import { getStackBatchContent } from "@/lib/notion/get-stacks";
 
 type PageProperties = {
   title: string;
@@ -32,9 +34,11 @@ export async function GET(_req: NextRequest, context: Context) {
       return NextResponse.json({} as Case, { status: HttpStatusCode.NotFound });
     }
     const pageContent = await notionGetPageContent({ pageId });
-    const { properties, markdown } = formatPageContent<PageProperties>(pageContent);
 
-    const stacks = properties.stacks || [];
+    const { properties, markdown } = formatPageContent<Case>(pageContent);
+    const stacksBatch = properties.stack.map((stack) => ({ stackId: stack.id }));
+    const rawStacks = await getStackBatchContent(stacksBatch);
+    const stacks = formatBatchStacks(rawStacks);
 
     return NextResponse.json(
       {
@@ -49,10 +53,7 @@ export async function GET(_req: NextRequest, context: Context) {
       }
     );
   } catch (error: any) {
-    // Log the error for debugging purposes
-
     logger.error("Error in GET /api/case/[slug]:", error);
-
     return NextResponse.json({} as Case, { status: HttpStatusCode.InternalServerError });
   }
 }

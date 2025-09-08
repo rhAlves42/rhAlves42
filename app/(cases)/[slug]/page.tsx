@@ -5,20 +5,10 @@ import StackContainer from "../components/stack-container/StackContainer";
 import { Suspense } from "react";
 
 const article = {
-  title: "Portfolio Website for Construction Company",
-  description:
-    "Developed a portfolio website for a construction company, briefly acting as team lead to manage stakeholder communication and implement complex visual layouts.",
   imageSrcSet:
     "/assets/cases/portifolio-web-site/512w.png 512w, /assets/cases/portifolio-web-site/1024w.png 1024w, /assets/cases/portifolio-web-site/2048w.png 2048w, /assets/cases/portifolio-web-site/4096w.png 4096w, /assets/cases/portifolio-web-site/4243w.png 4243w",
   imageAlt: "Portfolio Website for Construction Company"
 };
-const stackItems = [
-  { name: "Gatsby.js", logo: "/assets/stack/gatsby.png" },
-  { name: "TypeScript", logo: "/assets/stack/typescript.svg" },
-  { name: "Python", logo: "/assets/stack/python.png" },
-  { name: "React Native", logo: "/assets/stack/react-native.png" },
-  { name: "TailwindCSS", logo: "/assets/stack/tailwindcss.svg" }
-];
 
 type PageProps = {
   params: Promise<{
@@ -28,8 +18,12 @@ type PageProps = {
 
 const PageContent = async ({ params }: PageProps) => {
   const { slug } = await params;
-  const { content, ...properties } = await getPageContent(slug);
-
+  const { content, stack, ...properties } = await getPageContent(slug);
+  const items = (stack || []).map((item) => ({
+    id: item.id,
+    name: item.name,
+    logo: item.icon
+  }));
   return (
     <>
       <ArticleHeader
@@ -38,9 +32,8 @@ const PageContent = async ({ params }: PageProps) => {
         imageSrcSet={article.imageSrcSet}
         imageAlt={article.imageAlt}
       />
-
       <ArticleBody content={content} />
-      <StackContainer items={stackItems} />
+      <StackContainer items={items} />
     </>
   );
 };
