@@ -4,9 +4,9 @@ type TableProps = {
 };
 const Table: React.FC<TableProps> = ({ rows }) => {
   return (
-    <div className="relative overflow-x-auto shadow-md sm:rounded-lg perspective">
-      <table className="w-full text-sm text-left rtl:text-right text-gray-500 text-gray-400">
-        <thead className="text-xs uppercase bg-transparent dark:bg-gray-700 text-gray-400" />
+    <div className="perspective relative overflow-x-auto shadow-md sm:rounded-lg">
+      <table className="w-full text-left text-sm text-gray-400 text-gray-500 rtl:text-right">
+        <thead className="bg-transparent text-xs text-gray-400 uppercase" />
         <tbody>
           {rows.map((i, index) => (
             <React.Fragment key={index}>{i}</React.Fragment>

@@ -17,8 +17,8 @@ const ExperienceTable = () => {
             <p className="text-6 text-xl font-normal !text-[#b3c2cbff] md:text-2xl">{info.title}</p>
           </th>
           <td className="min-w-content relative flex h-min flex-col content-end items-end justify-center gap-[10px] overflow-hidden py-4">
-            <p className="text-right text-lg">{info.company}</p>
-            <p className="text-right text-base whitespace-nowrap md:text-lg md:whitespace-normal">
+            <p className="text-right text-lg text-[#b3c2cbff]">{info.company}</p>
+            <p className="md:whitespace-norma text-right text-base whitespace-nowrap text-[#b3c2cbff] md:text-lg">
               {info.duration}
             </p>
           </td>
@@ -27,7 +27,7 @@ const ExperienceTable = () => {
   );
   return (
     <section className="relative z-1 m-auto flex flex-col flex-wrap gap-[32px] md:w-4/5">
-      <Heading>Experience</Heading>
+      <Heading className="text-[#FDFEFF]">Experience</Heading>
       <Table rows={rows} />
     </section>
   );

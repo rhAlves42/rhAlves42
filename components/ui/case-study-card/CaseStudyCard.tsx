@@ -6,9 +6,16 @@ type CaseStudyCardProps = {
   description: React.ReactNode;
   onClick?: () => void;
   className?: string;
+  slug: string;
 };
 
-const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ source, description, title, className }) => {
+const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
+  source,
+  description,
+  title,
+  className,
+  slug
+}) => {
   return (
     <div className="perspective relative z-1 flex flex-col items-center gap-2 overflow-hidden rounded-4xl border border-[#cccccc1a] bg-[#0f151f] shadow-sm md:h-[500px] md:min-h-[500px] md:flex-row md:gap-20 md:px-10 md:py-15 lg:justify-center">
       <div
@@ -23,11 +30,13 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ source, description, titl
           <h5 className="mb-2 text-2xl font-light tracking-tight text-white">{title}</h5>
           <p className="mb-3 text-base font-light text-[#b3c2cb]">{description}</p>
         </div>
-        {false && (
-          <button className="relative ms-2 w-fit rounded-4xl border-gray-600 bg-gray-800 px-4 py-2 text-sm font-extralight text-gray-400 text-white hover:bg-gray-700 hover:text-white focus:ring-gray-700">
-            View case study
-          </button>
-        )}
+
+        <a
+          href={`/${slug}`}
+          className="relative ms-2 w-fit rounded-4xl border-gray-600 bg-gray-800 px-4 py-2 text-sm font-extralight text-gray-400 text-white hover:bg-gray-700 hover:text-white focus:ring-gray-700"
+        >
+          View case study
+        </a>
       </div>
 
       <img
