@@ -1,0 +1,17 @@
+node_modules
+
+.DS_*
+
+/.next/
+/out/
+/build
+
+.env
+.env.*
+ 
+!.env.template
+tsconfig.tsbuildinfo
+
+# Sentry Config File
+.env.sentry-build-plugin
+
