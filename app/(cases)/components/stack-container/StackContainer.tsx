@@ -7,6 +7,8 @@ type StackContainerProps = {
 };
 
 const StackContainer: React.FC<StackContainerProps> = ({ items }) => {
+  if (items.length <= 0) return null;
+
   return (
     <section className="flex flex-col gap-6 px-5 py-12 md:px-10">
       <Heading className="text-3xl text-[#d1dae0] md:text-4xl">Stack</Heading>

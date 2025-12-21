@@ -1,3 +1,4 @@
+import { CaseCard } from "@/types/case";
 import { Stack } from "@/types/stack";
 import { PageObjectResponse } from "@notionhq/client";
 import getConnection from "lib/notion/connection";
@@ -54,6 +55,19 @@ export function formatBatchStacks(stacks: GetStackContentResponse[]): Stack[] {
   });
 }
 
+export function formatCardsContent(cases: PageObjectResponse[]): CaseCard[] {
+  return cases.map((caseItem) => {
+    const formatted = formatProperties<CaseCard>(caseItem.properties);
+    return {
+      description: formatted.description,
+      file: formatted.file,
+      slug: formatted.slug,
+      stack: formatted.stack,
+      title: formatted.title
+    };
+  });
+}
+
 function formatProperties<T>(properties: PageObjectResponse["properties"]): T {
   type FormattedByType = Record<string, (key: string, value: any) => void>;
   const formatterByType: FormattedByType = {
@@ -75,8 +89,16 @@ function formatProperties<T>(properties: PageObjectResponse["properties"]): T {
       return { [key]: plain_text };
     },
     [PropertyKeys.files]: (_key: string, value: NotionFiles) => {
+      if (!Array.from((value as any)[value.type]).length) {
+        return { file: null };
+      }
       const { file } = (value as any)[value.type][0];
+
       return { file: file.url };
+    },
+    [PropertyKeys.checkbox]: (key: string, value: NotionFiles) => {
+      const checkbox = (value as any)[value.type];
+      return { [key]: checkbox };
     }
   };
 

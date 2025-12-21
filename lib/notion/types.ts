@@ -18,6 +18,7 @@ export type GetStackContentResponse = {
   properties: PageObjectResponse["properties"];
 };
 
+
 export enum DATABASES {
   CASES = "cases",
   STACK = "stack"
@@ -30,3 +31,7 @@ export type FormatedFile = {
   id: string | number;
   name: string;
 };
+
+export type PageSize = { pageSize: number };
+export type QueryBySlugParams = PageSize & { slug: string };
+export type QueryByHighlightParams = PageSize & {};

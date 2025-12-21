@@ -12,8 +12,8 @@ const Banner = () => {
           src={profileImg.src}
           alt="Bonnie image"
         />
-        <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">Ricardo Alves</h5>
-        <span className="text-sm text-gray-500 dark:text-gray-400">Software Developer</span>
+        <h5 className="mb-1 text-xl font-medium text-[#b3c2cbff]">Ricardo Alves</h5>
+        <span className="text-sm text-[#b3c2cbff]">Software Developer</span>
       </div>
       <div className="relative m-auto flex h-auto w-full max-w-[500px] min-w-[300px] flex-none shrink-0 transform-[perspective(1200px)] flex-col justify-start whitespace-pre-wrap opacity-100 will-change-transform">
         <h1 className="text-[32px] md:text-[46px]">

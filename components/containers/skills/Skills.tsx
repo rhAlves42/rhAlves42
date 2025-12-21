@@ -22,7 +22,7 @@ const skillList = [
 const Skills = () => {
   return (
     <section className="relative z-1 m-auto flex flex-col flex-wrap gap-[32px] md:w-4/5">
-      <Heading>Skills</Heading>
+      <Heading className="text-[#FDFEFF]">Skills</Heading>
       <div className="flex flex-wrap gap-2 xl:w-3/4">
         {skillList.map((skill) => (
           <Badge key={skill}>{skill}</Badge>

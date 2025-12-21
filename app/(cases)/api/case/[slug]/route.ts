@@ -26,7 +26,7 @@ export async function GET(_req: NextRequest, context: Context) {
     if (!pageId) {
       return NextResponse.json({} as Case, { status: HttpStatusCode.NotFound });
     }
-    const pageContent = await notionGetPageContent({ pageId });
+    const pageContent = await notionGetPageContent({ pageId: pageId });
 
     const { properties, markdown } = formatPageContent<Case>(pageContent);
     const stacksBatch = properties.stack.map((stack) => ({ stackId: stack.id }));
@@ -35,7 +35,7 @@ export async function GET(_req: NextRequest, context: Context) {
 
     return NextResponse.json(
       {
-        id: pageId,
+        id: "pageId",
         title: properties.title,
         content: markdown,
         description: properties.description,

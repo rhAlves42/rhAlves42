@@ -1,3 +1,4 @@
+"use client";
 import React, { type PropsWithChildren } from "react";
 import { withFrameShine } from "@hoc/with-frame-shine/withFrameShine";
 import tailwindMerge from "@utils/tailwindMerge";

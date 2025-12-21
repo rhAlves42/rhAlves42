@@ -2,7 +2,13 @@ import getConnection, { queryDatabase } from "./connection";
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { NotionToMarkdown } from "notion-to-md";
 import { MdBlock } from "notion-to-md/build/types";
-import { DATABASES, GetPageContentParams, GetPageContentResponse } from "./types";
+import {
+  DATABASES,
+  GetPageContentParams,
+  GetPageContentResponse,
+  QueryByHighlightParams,
+  QueryBySlugParams
+} from "./types";
 import { logger } from "@sentry/nextjs";
 
 /**
@@ -55,12 +61,26 @@ export const getAllDatabaseContent = async (
   return contentMap;
 };
 
-export const queryCasesBySlug = async ({ slug, pageSize }: { slug: string; pageSize: number }) => {
+export const queryCasesBySlug = async ({ slug, pageSize }: QueryBySlugParams) => {
   return queryDatabase(DATABASES.CASES, {
     filter: {
       property: "slug",
       rich_text: {
         equals: slug
+      }
+    },
+    page_size: pageSize
+  });
+};
+
+export const queryCasesByHighlight = async ({
+  pageSize
+}: QueryByHighlightParams): Promise<PageObjectResponse[]> => {
+  return queryDatabase(DATABASES.CASES, {
+    filter: {
+      property: "highlight",
+      checkbox: {
+        equals: true
       }
     },
     page_size: pageSize

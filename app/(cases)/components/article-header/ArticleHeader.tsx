@@ -8,7 +8,7 @@ type ArticleHeaderProps = {
 };
 const ArticleHeader = ({ title, description, imageSrcSet, imageAlt }: ArticleHeaderProps) => {
   return (
-    <article className="relative flex h-auto w-full flex-none flex-col justify-start gap-8 py-10 break-words whitespace-pre-wrap outline-none md:w-[130%] md:min-w-[300px]">
+    <article className="relative flex h-auto w-full flex-none flex-col justify-start gap-8 py-10 break-words whitespace-pre-wrap outline-none md:w-full md:min-w-[300px]">
       <h1 className="px-10 text-4xl font-medium text-[#d1dae0] md:max-w-[800px] md:text-5xl">
         {title}
       </h1>
@@ -20,7 +20,7 @@ const ArticleHeader = ({ title, description, imageSrcSet, imageAlt }: ArticleHea
         srcSet={imageSrcSet}
         alt={imageAlt}
         sizes="calc(min(100vw - 80px, 1080px) - 80px)"
-        className="mt-10 object-cover md:max-w-fit md:rounded-3xl lg:max-w-[1080px]"
+        className="mt-10 object-cover md:max-w-fit md:rounded-3xl lg:max-w-[920px]"
       />
     </article>
   );
