@@ -10,7 +10,7 @@ import { logger } from "@sentry/nextjs";
 export async function GET(_req: NextRequest) {
   try {
     const queryCasesResponse = await queryCasesByHighlight({
-      pageSize: 3
+      pageSize: 2
     });
 
     const data = formatCardsContent(queryCasesResponse);
