@@ -1,11 +1,2 @@
-[build]
-  command = "npm run build"
-  publish = ".next"
-
-[build.secrets]
-  ignore_paths = [
-    ".env.template",
-    "docker-compose.prod.yml",
-    "env.d.ts",
-    "nginx.conf.template"
-  ]
+[build.environment]
+  SECRETS_SCAN_OMIT_KEYS = "NEXTJS_INTERNAL_PORT,NEXT_PUBLIC_SENTRY_DSN"
