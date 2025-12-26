@@ -3,7 +3,7 @@ enum HTTP_METHODS {
   GET = "GET",
   PUT = "PUT",
   DELETE = "DELETE",
-  PATCH = "PATCH",
+  PATCH = "PATCH"
 }
 
 export default HTTP_METHODS;
