@@ -14,7 +14,7 @@ const nextApiRequest = async <T>({
   body,
   params,
   signal
-}: NextApiRequestParams) => {
+}: NextApiRequestParams): Promise<T> => {
   try {
     logger.trace("Calling nextApiRequest", {
       endPoint,
@@ -37,10 +37,8 @@ const nextApiRequest = async <T>({
       ...(signal ? { signal } : {})
     };
 
-    const data: T = await fetch(url, fetchOptions).then(async (res) => await res.json());
-
-    return data;
-  } catch (error: any) {
+    return <T>await fetch(url, fetchOptions).then(async (res) => await res.json());
+  } catch (error: unknown) {
     logger.fatal("Error in nextApiRequest", {
       endPoint,
       method,

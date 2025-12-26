@@ -75,8 +75,8 @@ export const queryCasesBySlug = async ({ slug, pageSize }: QueryBySlugParams) =>
 
 export const queryCasesByHighlight = async ({
   pageSize
-}: QueryByHighlightParams): Promise<PageObjectResponse[]> => {
-  return queryDatabase(DATABASES.CASES, {
+}: QueryByHighlightParams): Promise<PageObjectResponse[]> =>
+  queryDatabase(DATABASES.CASES, {
     filter: {
       property: "highlight",
       checkbox: {
@@ -85,4 +85,3 @@ export const queryCasesByHighlight = async ({
     },
     page_size: pageSize
   });
-};
