@@ -2,19 +2,8 @@
 // The config you add here will be used whenever the server handles a request.
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 
-import * as Sentry from "@sentry/nextjs";
-
-function getSentryDNSOrThrow(): string {
-  const dsn = process.env.NEXT_PUBLIC_SENTRY_DSN;
-  if (!dsn) {
-    throw new Error("NEXT_PUBLIC_SENTRY_DSN is not defined");
-  }
-  return dsn;
-}
-
-Sentry.init({
-  dsn: getSentryDNSOrThrow(),
-
+export default {
+  dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
   // Enable logs to be sent to Sentry
   enableLogs: true,
   // Define how likely traces are sampled. Adjust this value in production, or use tracesSampler for greater control.
@@ -26,4 +15,4 @@ Sentry.init({
   // Enable sending user PII (Personally Identifiable Information)
   // https://docs.sentry.io/platforms/javascript/guides/nextjs/configuration/options/#sendDefaultPii
   sendDefaultPii: true
-});
+};

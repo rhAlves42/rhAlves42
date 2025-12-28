@@ -5,7 +5,7 @@ import { formatCardsContent } from "lib/content-formatter/contentFormatter";
 import { queryCasesByHighlight } from "@/lib/notion/get-cases";
 
 import { HttpStatusCode } from "@/utils/httpStatus";
-import { logger } from "@sentry/nextjs";
+import { AppLogger } from "@/lib/logger/logger";
 
 export async function GET(_req: NextRequest) {
   try {
@@ -18,7 +18,7 @@ export async function GET(_req: NextRequest) {
       status: HttpStatusCode.OK
     });
   } catch (error: any) {
-    logger.error("Error in GET /api/cards:", error);
+    AppLogger.error("Error in GET /api/cards:", error);
     return NextResponse.json([] as CaseCard[], { status: HttpStatusCode.InternalServerError });
   }
 }

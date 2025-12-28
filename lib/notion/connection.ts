@@ -4,7 +4,7 @@ import {
   PageObjectResponse
 } from "@notionhq/client";
 import { QueryDatabaseParameters } from "@notionhq/client/build/src/api-endpoints";
-import { logger } from "@sentry/nextjs";
+import { AppLogger } from "@/lib/logger/logger";
 import { DATABASES } from "./types";
 
 const NOTION_TOKEN = process.env.NOTION_API_KEY;
@@ -33,7 +33,7 @@ export default function getConnection() {
 
 export function getDatabaseIdOrError(database: DATABASES): string {
   if (!database) {
-    logger.fatal("Error fetching database", { error: "Database type is not defined" });
+    AppLogger.fatal("Error fetching database", { error: "Database type is not defined" });
     throw new Error("Database type is not defined");
   }
 
@@ -44,7 +44,7 @@ export function getDatabaseIdOrError(database: DATABASES): string {
   const NOTION_DATABASE_ID = databasesByName[database] || null;
 
   if (!NOTION_DATABASE_ID) {
-    logger.fatal("Error fetching database", { error: "NOTION_DATABASE_ID is not defined" });
+    AppLogger.fatal("Error fetching database", { error: "NOTION_DATABASE_ID is not defined" });
     throw new Error("NOTION_DATABASE_ID is not defined");
   }
   return NOTION_DATABASE_ID;
@@ -58,12 +58,12 @@ export function getDatabaseIdOrError(database: DATABASES): string {
 export const getDatabase = async (database: DATABASES): Promise<DatabaseObjectResponse> => {
   try {
     const databaseId = getDatabaseIdOrError(database);
-    logger.trace("Getting database", { databaseId, database });
+    AppLogger.trace("Getting database", { databaseId, database });
     const notion = getConnection();
     const retrievedDB = await notion.databases.retrieve({ database_id: databaseId });
     return retrievedDB as DatabaseObjectResponse;
   } catch (error) {
-    logger.fatal("Error fetching database", { error, data: { database } });
+    AppLogger.fatal("Error fetching database", { error, data: { database } });
     throw error;
   }
 };
@@ -79,7 +79,7 @@ export const queryDatabase = async (
   queryOptions?: Partial<QueryDatabaseParameters>
 ): Promise<PageObjectResponse[]> => {
   try {
-    logger.trace("Starting database connection", { database });
+    AppLogger.trace("Starting database connection", { database });
     const notion = getConnection();
     const databaseId = getDatabaseIdOrError(database);
     let allEntries: PageObjectResponse[] = [];
@@ -100,7 +100,7 @@ export const queryDatabase = async (
 
     return allEntries;
   } catch (error) {
-    logger.fatal("Error querying database with ID", { database, error });
+    AppLogger.fatal("Error querying database with ID", { database, error });
     throw error;
   }
 };
