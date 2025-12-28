@@ -1,4 +1,7 @@
+import { allOnRequestError } from "./instrumentation/instrumentation";
+
 export async function register() {
-  const { register: sentryRegister } = await import("./instrumentation");
-  await sentryRegister();
+  await import("./instrumentation/instrumentation");
 }
+
+export const onRequestError = allOnRequestError;
