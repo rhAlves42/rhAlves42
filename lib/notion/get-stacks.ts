@@ -1,4 +1,4 @@
-import { logger } from "@sentry/nextjs";
+import { AppLogger } from "@/lib/logger/logger";
 import getConnection, { queryDatabase } from "./connection";
 import { DATABASES, GetStackContentParams, GetStackContentResponse } from "./types";
 import { PageObjectResponse } from "@notionhq/client";
@@ -19,7 +19,7 @@ export const getStackContent = async ({
   stackId
 }: GetStackContentParams): Promise<GetStackContentResponse> => {
   try {
-    logger.trace("Getting stack content", { stackId });
+    AppLogger.trace("Getting stack content", { stackId });
     const notion = getConnection();
     const pageData = await notion.pages.retrieve({ page_id: stackId });
 
@@ -29,7 +29,7 @@ export const getStackContent = async ({
       properties
     };
   } catch (error) {
-    logger.fatal("Error fetching content for page ID", { stackId, error });
+    AppLogger.fatal("Error fetching content for page ID", { stackId, error });
     throw error;
   }
 };

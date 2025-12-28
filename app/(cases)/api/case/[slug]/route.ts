@@ -5,7 +5,7 @@ import { formatBatchStacks, formatPageContent } from "lib/content-formatter/cont
 import { getPageContent as notionGetPageContent, queryCasesBySlug } from "@/lib/notion/get-cases";
 
 import { HttpStatusCode } from "@/utils/httpStatus";
-import { logger } from "@sentry/nextjs";
+import { AppLogger } from "@/lib/logger/logger";
 import { getStackBatchContent } from "@/lib/notion/get-stacks";
 
 type Context = {
@@ -46,7 +46,7 @@ export async function GET(_req: NextRequest, context: Context) {
       }
     );
   } catch (error: any) {
-    logger.error("Error in GET /api/case/[slug]:", error);
+    AppLogger.error("Error in GET /api/case/[slug]:", error);
     return NextResponse.json({} as Case, { status: HttpStatusCode.InternalServerError });
   }
 }

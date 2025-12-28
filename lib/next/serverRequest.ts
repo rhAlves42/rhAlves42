@@ -1,6 +1,6 @@
 import { GetServerSidePropsContext, NextApiRequest } from "next";
 import HTTP_METHODS from "@/utils/httpsMethods";
-import { logger } from "@sentry/nextjs";
+import { AppLogger } from "@/lib/logger/logger";
 
 interface ServerRequest {
   method: HTTP_METHODS;
@@ -25,7 +25,7 @@ export const serverRequest = async <T>({
   req
 }: ServerRequest): Promise<ServerResponse<T>> => {
   try {
-    logger.trace("Calling serverRequest", { method, endPoint, req });
+    AppLogger.trace("Calling serverRequest", { method, endPoint, req });
     const response = await fetch(endPoint, {
       method,
       body: JSON.stringify(req?.body),
@@ -36,7 +36,7 @@ export const serverRequest = async <T>({
 
     return { data: <T>response.data, status: response.status };
   } catch (error: any) {
-    logger.fatal("Error fetching API:", {
+    AppLogger.fatal("Error fetching API:", {
       data: error.response?.data,
       status: error.response?.status ?? 500
     });

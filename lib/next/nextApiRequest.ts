@@ -1,5 +1,5 @@
 import HTTP_METHODS from "@/utils/httpsMethods";
-import { logger } from "@sentry/nextjs";
+import { AppLogger } from "@/lib/logger/logger";
 
 type NextApiRequestParams = {
   method: HTTP_METHODS;
@@ -16,7 +16,7 @@ const nextApiRequest = async <T>({
   signal
 }: NextApiRequestParams): Promise<T> => {
   try {
-    logger.trace("Calling nextApiRequest", {
+    AppLogger.trace("Calling nextApiRequest", {
       endPoint,
       method,
       body,
@@ -39,7 +39,7 @@ const nextApiRequest = async <T>({
 
     return <T>await fetch(url, fetchOptions).then(async (res) => await res.json());
   } catch (error: unknown) {
-    logger.fatal("Error in nextApiRequest", {
+    AppLogger.fatal("Error in nextApiRequest", {
       endPoint,
       method,
       body,

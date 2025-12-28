@@ -1,3 +1,7 @@
+enum LOGGER_OPTIONS {
+  SENTRY,
+  CONSOLE
+}
 declare namespace NodeJS {
   interface ProcessEnv {
     readonly NODE_ENV: "development" | "production" | "test";
@@ -12,7 +16,8 @@ declare namespace NodeJS {
 
     // Sentry
     readonly NEXT_PUBLIC_SENTRY_DSN: string;
-    readonly SENTRY_AUTH_TOKEN: string;
+    readonly NEXT_PUBLIC_LOGGER: boolean;
+    readonly SENTRY_AUTH_TOKEN: LOGGER_OPTIONS;
 
     // Internal endpoints
     readonly NEXT_PUBLIC_BASE_URL: string;

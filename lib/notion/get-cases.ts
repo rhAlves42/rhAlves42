@@ -9,7 +9,7 @@ import {
   QueryByHighlightParams,
   QueryBySlugParams
 } from "./types";
-import { logger } from "@sentry/nextjs";
+import { AppLogger } from "@/lib/logger/logger";
 
 /**
  * Retrieves all blocks (content) from a Notion page, including children.
@@ -21,7 +21,7 @@ export const getPageContent = async ({
   pageId
 }: GetPageContentParams): Promise<GetPageContentResponse> => {
   try {
-    logger.trace("Getting page content", { pageId });
+    AppLogger.trace("Getting page content", { pageId });
     const notion = getConnection();
     const pageData = await notion.pages.retrieve({ page_id: pageId });
 
@@ -36,7 +36,7 @@ export const getPageContent = async ({
       properties: pageDataResponse.properties
     };
   } catch (error) {
-    logger.fatal("Error fetching content for page ID", { pageId, error });
+    AppLogger.fatal("Error fetching content for page ID", { pageId, error });
     throw error;
   }
 };
