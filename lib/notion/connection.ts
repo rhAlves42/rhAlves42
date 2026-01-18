@@ -14,7 +14,7 @@ export default function getConnection() {
     const notion = new NotionClient({
       auth: NOTION_TOKEN
     });
-    AppLogger.info("Notion connection established: " + NOTION_TOKEN);
+    console.info("Notion connection established: " + NOTION_TOKEN);
     return notion;
   } catch (error) {
     console.error("Error establishing Notion connection:", error);
@@ -43,7 +43,7 @@ export function getDatabaseIdOrError(database: DATABASES): string {
     stack: process.env.NOTION_STACK_DATABASE_ID
   };
 
-  AppLogger.info("Database ID retrieved: " + databasesByName[database]);
+  console.info("Database ID retrieved: " + databasesByName[database]);
   const NOTION_DATABASE_ID = databasesByName[database] || null;
 
   if (!NOTION_DATABASE_ID) {
@@ -100,7 +100,7 @@ export const queryDatabase = async (
       allEntries = allEntries.concat(pages);
       cursor = response.next_cursor;
     } while (cursor);
-
+    console.info("Database query completed" + allEntries.length);
     return allEntries;
   } catch (error) {
     console.error(error);
