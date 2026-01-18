@@ -4,8 +4,12 @@ import getCardsContent from "@/lib/get-cards-content/getCardsContent";
 const CaseStudy = async () => {
   const caseCards = await getCardsContent();
 
+  console.info("GET /api/cards successful: " + caseCards.length);
+
+  console.info("Rendering CaseStudy component");
+
   return (
-    <section className="relative m-auto flex h-min w-full max-w-[1000px] [transform:perspective(1200px)] scroll-mt-[20px] flex-col items-center justify-center gap-[48px] overflow-visible py-[64px] opacity-100 will-change-transform">
+    <section className="custom-class-debug relative m-auto flex h-min w-full max-w-[1000px] [transform:perspective(1200px)] scroll-mt-[20px] flex-col items-center justify-center gap-[48px] overflow-visible py-[64px] opacity-100 will-change-transform">
       {(caseCards || []).map((props) => (
         <CaseStudyCard
           description={props.description}
