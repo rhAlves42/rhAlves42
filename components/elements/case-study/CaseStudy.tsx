@@ -1,7 +1,8 @@
 import CaseStudyCard from "@components/ui/case-study-card/CaseStudyCard";
 import getCardsContent from "@/lib/get-cards-content/getCardsContent";
+import { Suspense } from "react";
 
-const CaseStudy = async () => {
+const CaseStudyComp = async () => {
   const caseCards = await getCardsContent();
 
   console.info("GET /api/cards successful: " + caseCards.length);
@@ -22,5 +23,11 @@ const CaseStudy = async () => {
     </section>
   );
 };
+
+const CaseStudy = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <CaseStudyComp />
+  </Suspense>
+);
 
 export default CaseStudy;
