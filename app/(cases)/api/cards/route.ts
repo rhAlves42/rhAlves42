@@ -14,6 +14,8 @@ export async function GET(_req: NextRequest) {
     });
 
     const data = formatCardsContent(queryCasesResponse);
+    console.info("GET /api/cards successful: " + data.length);
+
     return NextResponse.json(data, {
       status: HttpStatusCode.OK
     });
