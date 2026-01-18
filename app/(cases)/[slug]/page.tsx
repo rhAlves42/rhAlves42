@@ -1,3 +1,4 @@
+"use client";
 import getPageContent from "lib/get-page-content/getPageContent";
 import ArticleBody from "../components/article-body/ArticleBody";
 import ArticleHeader from "../components/article-header/ArticleHeader";
