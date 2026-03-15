@@ -19,11 +19,10 @@ export default function Page() {
       </div>
       <main className="z-1 flex flex-col gap-12 md:gap-40">
         <Banner />
+        <ExperienceTable />
         <CaseStudy />
         <Bio />
         <Skills />
-        <ExperienceTable />
-
         <CompanyTestimonies />
         {/* <SocialNetwork /> */}
         <Footer />
