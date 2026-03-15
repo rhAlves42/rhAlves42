@@ -1,118 +1,96 @@
-# NextJS Dockerised
+# Hey, I’m Ricardo 👋🧠
 
-A modern Next.js starter template with TypeScript, Tailwind CSS, and Docker support.
+> *“Try one more time.”* — Raul Seixas (and every failed build right before it passes)
 
-## Features
+Welcome to my GitHub.
+This is where code meets curiosity, tests keep me honest, and commits tell a story.
+I’m a developer who likes things clean, scalable, and meaningful — kind of like a good album, a solid sci‑fi arc, or a well-balanced RPG build.
 
-- Next.js 15+
-- React 19
-- TypeScript
-- Tailwind CSS
-- Fully Dockerised
-- Prettier code formatting
+![Coding GIF](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2xwZGFpZWZ6dGNqY3o5ZW9oZXF5a2F3ZW9sb2l1bGJ6a3V0YyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/13HgwGsXF0aiGY/giphy.gif)
 
-## Getting Started
+---
 
-This project is fully containerised with Docker. All development and production environments run inside Docker containers.
+## 🧠 My Skill Tree (MMO-style)
 
-### Prerequisites
+🗡️ **Frontend Warrior**
+React.js, Next.js, React Native, TypeScript, Tailwind
+Pixel‑perfect UIs forged straight from Figma — no dark magic, just discipline.
 
-- Docker
-- Docker Compose
+🛡️ **Backend Ally**
+Node.js, NestJS, Django, FastAPI, GraphQL
+I speak backend well enough to avoid “it works on my machine” wars.
 
-## Docker Usage & Debugging
+🧪 **Testing Paladin**
+Jest, RTL, Cypress, Vitest, Playwright
+If it’s not tested, it’s just a rumor.
 
-Set up environment variables:
-   - Copy `.env.template` to `.env`
-   - Update the variables as needed
+⚙️ **Architecture & DX Monk**
+Reusable hooks, scalable patterns, clean boundaries.
+I refactor like Kratos fights gods — calmly, but decisively.
+---
 
-### Development
+## 🚀 Projects & Quests Completed
 
-Start the development environment:
-```bash
-docker-compose -f docker-compose.development.yml up
-```
+🩺 **Healthcare App (HIPAA Mode: ON)**
+React Native + Next.js apps where data protection is sacred.
+No shortcuts. No sonic screwdrivers.
 
-You can modify the port within the `.env` file.
+💳 **Fintech Platform**
+Real‑time data, performance tuning, and UX improvements.
+Think *1984*, but fighting for transparency instead.
 
-### Production
+🛒 **E‑commerce Platform**
+Checkout flows, Stripe & PayPal integrations, and UI optimization.
+Statistics never lied — they were just misused.
 
-Start the production environment:
-```bash
-docker-compose -f docker-compose.production.yml up
-```
+Every project here started as chaos.
+Then tests were written.
+Then order emerged.
+Very *Doctor Who*.
 
-### VS Code Integration
+---
 
-This project includes VS Code launch configurations for Docker containers:
+## 🎬 Cultural References That Shaped My Debugging Style
 
-1. Open the project in VS Code
-2. Navigate to the Run and Debug panel (Ctrl+Shift+D or Cmd+Shift+D)
-3. Select either "Docker Compose (Development)" or "Docker Compose (Production)" from the dropdown
-4. Press the play button or F5 to start the containers
+* 🎤 **Emicida & Djonga** — code with context, impact, and intention
+* 🤡 **Mamonas Assassinas** — humor keeps teams sane
+* 🌀 **Doctor Who** — fix the timeline, don’t break the universe
+* 🎭 **O Auto da Compadecida** — clever solutions > brute force
+* 🐴 **Bojack Horseman** — technical debt is emotional debt
+* 🌌 **Star Wars** — balance in the architecture, always
 
-The launch configurations will build and start the Docker containers in the appropriate mode. Remember to stop the debug session when you are done.
+---
 
-## GitHub Actions
+![GIF](https://media1.tenor.com/m/JH-852KOAJ8AAAAC/talisman-online-wondering.gif)
 
-This project includes automated GitHub Actions workflows:
+## 🎮 Side Quests (a.k.a. About Me)
 
-### PR Description Generator
+* 🚗 Drove through **GTA San Andreas** before learning about system design
+* 🧙 MMO RPG mindset: evolve the character, help the party
+* ⚰️ **Graveyard Keeper** taught me automation is peace
+* 🧠 Reads books that question systems, power, and numbers
+* ☕ Coffee-powered, curiosity-driven
 
-The repository automatically generates a changelog in your PR descriptions based on commit messages:
+I enjoy calm PRs, honest feedback, and teams that talk like humans.
 
-- Triggered when PRs are opened or updated
-- Parses commit messages using conventional commit format
-- Groups changes by type (features, fixes, etc.)
-- Inserts a formatted changelog into the PR description
+---
 
-For best results, format your commit messages following the conventional commit style:
+## 🤝 Let’s Talk
 
-Where `<type>` is one of:
-- `feat`: New features
-- `fix`: Bug fixes
-- `docs`: Documentation changes
-- `refactor`: Code refactoring
-- `build`: Build-related changes
-- `ci`: CI/CD changes
+If you:
 
-The changelog is automatically inserted between special comment markers in the PR description. You can still add your own content before or after the changelog.
+* like clean code with personality
+* care about users *and* maintainability
+* believe collaboration beats hero coding
 
-### Linting
+Explore the repos.
+Open an issue.
+Send a message.
 
-The repository includes automated linting and type checking:
+> *“Mistakes are part of the process.”*
+> And deal with them, that’s something I bring to the table. 🚀
 
-- Runs when PRs are opened or updated
-- Validates code quality and adherence to project standards
-- Uses ESLint to check for code quality issues
-- Runs TypeScript compiler to verify type safety
-- Automatically comments on the PR if any checks fail
-
-You can also run these checks locally:
-
-```bash
-# Run ESLint
-npm run lint
-
-# Run TypeScript type checking
-npm run type-check
-```
-
-### Deployment
-
-**Coming soon**
-
-## Project Structure
-
-- `/app` - Next.js app directory
-- `/components` - React components
-- `/context` - React context providers
-- `/css` - CSS files including Tailwind
-- `/hooks` - Custom React hooks
-- `/lib` - Custom libraries
-- `/types` - TypeScript type definitions
-- `/utils` - Utility functions
-
-## License
-
-MIT
+[<img src="https://img.shields.io/badge/Microsoft_Outlook-0078D4?style=for-the-badge&logo=microsoft-outlook&logoColor=white">](mailto:ricardo_henriqui@outlook.com)
+[<img src="https://img.shields.io/badge/Calendly-%23006BFF.svg?style=for-the-badge&logo=Calendly&logoColor=white">](https://calendly.com/ricardo_henriqui/30min)
+[<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white">](https://www.linkedin.com/in/ricardohenri/)
+[<img src="https://img.shields.io/badge/Portfolio-%23000000.svg?style=for-the-badge&logo=firefox&logoColor=#FF7139">](https://bio.theaveragedev.dev)

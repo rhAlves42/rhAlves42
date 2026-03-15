@@ -1,7 +1,7 @@
-import { allOnRequestError } from "./instrumentation/instrumentation";
+import { allOnRequestError } from "./instrumentation-config/instrumentation";
 
 export async function register() {
-  await import("./instrumentation/instrumentation");
+  await import("./instrumentation-config/instrumentation");
 }
 
 export const onRequestError = allOnRequestError;
