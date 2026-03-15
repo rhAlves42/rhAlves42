@@ -1,5 +1,6 @@
 import CaseStudyCard from "@components/ui/case-study-card/CaseStudyCard";
 import getCardsContent from "@/lib/get-cards-content/getCardsContent";
+import Heading from "@/components/elements/heading/Heading";
 import { Suspense } from "react";
 
 const CaseStudyComp = async () => {
@@ -10,7 +11,8 @@ const CaseStudyComp = async () => {
   console.info("Rendering CaseStudy component");
 
   return (
-    <section className="custom-class-debug relative m-auto flex h-min w-full max-w-[1000px] [transform:perspective(1200px)] scroll-mt-[20px] flex-col items-center justify-center gap-[48px] overflow-visible py-[64px] opacity-100 will-change-transform">
+    <section id="case" className="relative m-auto flex h-min w-full [transform:perspective(1200px)] scroll-mt-5 flex-col items-center justify-center gap-12 overflow-visible py-16 opacity-100 will-change-transform md:w-4/5">
+      <Heading className="text-[#FDFEFF] self-start">Cases</Heading>
       {(caseCards || []).map((props) => (
         <CaseStudyCard
           description={props.description}

@@ -25,9 +25,9 @@ const Banner = () => {
 
       <div className="items-center justify-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4 rtl:space-x-reverse">
         <NeonButton>
-          <p className="z-2 inline-flex rounded-lg text-lg !font-semibold text-white focus:ring-4 focus:ring-blue-300 focus:outline-none">
+          <a href="#case" className="z-2 inline-flex rounded-lg text-lg !font-semibold text-white focus:ring-4 focus:ring-blue-300 focus:outline-none">
             Know more
-          </p>
+          </a>
         </NeonButton>
       </div>
     </div>
