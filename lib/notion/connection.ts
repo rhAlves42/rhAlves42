@@ -87,6 +87,7 @@ export const queryDatabase = async (
     const databaseId = getDatabaseIdOrError(database);
     let allEntries: PageObjectResponse[] = [];
     let cursor: string | null = null;
+    console.info('databaseId', databaseId)
 
     do {
       const response = await notion.databases.query({
@@ -97,6 +98,9 @@ export const queryDatabase = async (
       });
 
       const pages = response.results as PageObjectResponse[];
+      console.info('pages', pages)
+      console.info('response', response)
+
       allEntries = allEntries.concat(pages);
       cursor = response.next_cursor;
     } while (cursor);
