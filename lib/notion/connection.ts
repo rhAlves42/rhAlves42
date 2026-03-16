@@ -14,7 +14,7 @@ export default function getConnection() {
     const notion = new NotionClient({
       auth: NOTION_TOKEN
     });
-    AppLogger.info("Notion connection established: " + NOTION_TOKEN);
+    AppLogger.info("Notion connection established", { token_present: !!NOTION_TOKEN, token_length: NOTION_TOKEN ? NOTION_TOKEN.length : 0 });
     return notion;
   } catch (error) {
     console.error("Error establishing Notion connection:", error);
