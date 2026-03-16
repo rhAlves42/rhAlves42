@@ -107,7 +107,10 @@ export const queryDatabase = async (
 
     return allEntries;
   } catch (error) {
+    console.info('queryDatabase', error)
+
     console.error(error);
+
     AppLogger.fatal("Error querying database with ID", { database, error });
     throw error;
   }
