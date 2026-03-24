@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { Suspense } from "react";
 
 import Banner from "@components/elements/banner/Banner";
 import ExperienceTable from "@components/elements/experience-table/ExperienceTable";
@@ -7,12 +7,14 @@ import CompanyTestimonies from "@components/elements/company-testmonies/CompanyT
 import Bio from "@components/containers/bio/Bio";
 import Skills from "@components/containers/skills/Skills";
 import Footer from "@components/containers/footer/Footer";
-
+import getCardsContent from '@/lib/get-cards-content/getCardsContent'
 import CaseStudy from "@components/elements/case-study/CaseStudy";
 // import SocialNetwork from "@components/containers/social-network/SocialNetwork";
 export const dynamic = 'force-dynamic'
 
-export default function Page() {
+export default async function Page() {
+  const caseCards = await getCardsContent();
+
   return (
     <main className="moving-gradient relative contents h-min min-h-screen w-[1200px] flex-col flex-nowrap justify-start gap-0 overflow-hidden bg-black px-8 py-0 md:px-12">
       <div className="fixed top-[calc(50.00000000000002%-480px/2)] left-[calc(50.00000000000002%-84.66666666666667%/2)] h-[480px] w-[85%] flex-none overflow-visible blur-[80px]" />
@@ -22,7 +24,9 @@ export default function Page() {
       <main className="z-1 flex flex-col gap-12 md:gap-40">
         <Banner />
         <ExperienceTable />
-        <CaseStudy />
+        <Suspense fallback={<div>loading cards</div>}>
+          <CaseStudy caseCards={caseCards} />
+        </Suspense>
         <Bio />
         <Skills />
         <CompanyTestimonies />
