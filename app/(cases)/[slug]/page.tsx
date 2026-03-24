@@ -1,4 +1,5 @@
 "use client";
+
 import getPageContent from "lib/get-page-content/getPageContent";
 import ArticleBody from "../components/article-body/ArticleBody";
 import ArticleHeader from "../components/article-header/ArticleHeader";
@@ -16,7 +17,8 @@ type PageProps = {
     slug: string;
   }>;
 };
-
+export const dynamic = 'force-dynamic'
+export const dynamicParams = true
 const PageContent = async ({ params }: PageProps) => {
   const { slug } = await params;
   const { content, stack, ...properties } = await getPageContent(slug);

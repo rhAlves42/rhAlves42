@@ -1,3 +1,4 @@
+
 import React from "react";
 
 import Banner from "@components/elements/banner/Banner";
@@ -9,6 +10,7 @@ import Footer from "@components/containers/footer/Footer";
 
 import CaseStudy from "@components/elements/case-study/CaseStudy";
 // import SocialNetwork from "@components/containers/social-network/SocialNetwork";
+export const dynamic = 'force-dynamic'
 
 export default function Page() {
   return (
