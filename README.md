@@ -1,4 +1,4 @@
-# Hey, I’m Ricardo 👋🧠
+# Hey, I’m Ricardo
 
 > *“Try one more time.”* — Raul Seixas (and every failed build right before it passes)
 
@@ -10,36 +10,36 @@ I’m a developer who likes things clean, scalable, and meaningful — kind of l
 
 ---
 
-## 🧠 My Skill Tree (MMO-style)
+## My Skill Tree
 
-🗡️ **Frontend Warrior**
+**Frontend Warrior**
 React.js, Next.js, React Native, TypeScript, Tailwind
 Pixel‑perfect UIs forged straight from Figma — no dark magic, just discipline.
 
-🛡️ **Backend Ally**
+**Backend Ally**
 Node.js, NestJS, Django, FastAPI, GraphQL
 I speak backend well enough to avoid “it works on my machine” wars.
 
-🧪 **Testing Paladin**
+**Testing Paladin**
 Jest, RTL, Cypress, Vitest, Playwright
 If it’s not tested, it’s just a rumor.
 
-⚙️ **Architecture & DX Monk**
+**Architecture & DX Monk**
 Reusable hooks, scalable patterns, clean boundaries.
 I refactor like Kratos fights gods — calmly, but decisively.
 ---
 
-## 🚀 Projects & Quests Completed
+## Projects & Quests Completed
 
-🩺 **Healthcare App (HIPAA Mode: ON)**
+**Healthcare App (HIPAA Mode: ON)**
 React Native + Next.js apps where data protection is sacred.
 No shortcuts. No sonic screwdrivers.
 
-💳 **Fintech Platform**
+**Fintech Platform**
 Real‑time data, performance tuning, and UX improvements.
 Think *1984*, but fighting for transparency instead.
 
-🛒 **E‑commerce Platform**
+**E‑commerce Platform**
 Checkout flows, Stripe & PayPal integrations, and UI optimization.
 Statistics never lied — they were just misused.
 
@@ -50,32 +50,32 @@ Very *Doctor Who*.
 
 ---
 
-## 🎬 Cultural References That Shaped My Debugging Style
+## Cultural References That Shaped My Debugging Style
 
-* 🎤 **Emicida & Djonga** — code with context, impact, and intention
-* 🤡 **Mamonas Assassinas** — humor keeps teams sane
-* 🌀 **Doctor Who** — fix the timeline, don’t break the universe
-* 🎭 **O Auto da Compadecida** — clever solutions > brute force
-* 🐴 **Bojack Horseman** — technical debt is emotional debt
-* 🌌 **Star Wars** — balance in the architecture, always
+* **Emicida & Djonga** — code with context, impact, and intention
+* **Mamonas Assassinas** — humor keeps teams sane
+* **Doctor Who** — fix the timeline, don’t break the universe
+* **O Auto da Compadecida** — clever solutions > brute force
+* **Bojack Horseman** — technical debt is emotional debt
+* **Star Wars** — balance in the architecture, always
 
 ---
 
 ![GIF](https://media1.tenor.com/m/JH-852KOAJ8AAAAC/talisman-online-wondering.gif)
 
-## 🎮 Side Quests (a.k.a. About Me)
+## Side Quests
 
-* 🚗 Drove through **GTA San Andreas** before learning about system design
-* 🧙 MMO RPG mindset: evolve the character, help the party
-* ⚰️ **Graveyard Keeper** taught me automation is peace
-* 🧠 Reads books that question systems, power, and numbers
-* ☕ Coffee-powered, curiosity-driven
+* Drove through **GTA San Andreas** before learning about system design
+* MMO RPG mindset: evolve the character, help the party
+* **Graveyard Keeper** taught me automation is peace
+* Reads books that question systems, power, and numbers
+* Coffee-powered, curiosity-driven
 
 I enjoy calm PRs, honest feedback, and teams that talk like humans.
 
 ---
 
-## 🤝 Let’s Talk
+## Let’s Talk
 
 If you:
 
@@ -88,7 +88,7 @@ Open an issue.
 Send a message.
 
 > *“Mistakes are part of the process.”*
-> And deal with them, that’s something I bring to the table. 🚀
+> And deal with them, that’s something I bring to the table.
 
 [<img src="https://img.shields.io/badge/Microsoft_Outlook-0078D4?style=for-the-badge&logo=microsoft-outlook&logoColor=white">](mailto:ricardo_henriqui@outlook.com)
 [<img src="https://img.shields.io/badge/Calendly-%23006BFF.svg?style=for-the-badge&logo=Calendly&logoColor=white">](https://calendly.com/ricardo_henriqui/30min)
